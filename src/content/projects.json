@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "super-44",
+    "title": "Super 44",
+    "status": "In development",
+    "summary": "A pixel-art racing world with an accessible HTML portfolio at its heart.",
+    "description": [
+      "Super 44 combines a fictional circuit and pit garage with a developer portfolio. An original animated racer brings the scene to life while navigation and content remain HTML.",
+      "Projects, skills, about, and contact open in the same window. Shareable links preserve the selected section through refresh and browser history. Reduced motion and a visible motion control keep animation optional.",
+      "The portfolio is still in development. Verified personal information, more project stories, and real-device performance checks are still to come."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "CSS"
+    ],
+    "preview": {
+      "src": "/images/pixel/circuit-800.webp",
+      "alt": "Super 44 fictional racing circuit with red and white curbs and illuminated pit garages"
+    },
+    "links": {},
+    "screenshots": [
+      {
+        "src": "/images/pixel/garage-800.webp",
+        "alt": "Original garage artwork created for Super 44, with a red car and driver"
+      }
+    ]
+  }
+]

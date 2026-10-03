@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Super 44
 
-## Getting Started
+The current implementation is the approved red/black pixel circuit and pit garage. Start with [documentation index](docs/00-START-HERE.md) and [current milestone](docs/23-PIXEL-CIRCUIT.md).
 
-First, run the development server:
+Node 24 and npm; use package-lock.json. Production output is static in out/.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Verified commands:
+- npm run build — production build and static export.
+- npm run lint — ESLint.
+- npm run typecheck — TypeScript.
+- npm run test — seven unit tests covering project content validation and retained historical scene policy.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Browser checks: npm run test:e2e uses installed Microsoft Edge and starts the static preview on port 3000. Browser coverage and limitations are recorded in docs/verification/REPORT.md. Historical 3D e2e tests are in tests/archive and are not part of the current suite.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The source images in assets-source are editable originals. Public WebP variants are optimized delivery assets. Personal details remain explicitly incomplete; this is not ready for public launch.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Also verified: npm run preview serves http://127.0.0.1:3000; npm run test:e2e passed all seven current scenarios against that preview. On this Windows host start preview in a separate terminal before e2e to avoid managed-server teardown stalls.
 
-## Learn More
+Current interaction: one persistent scene with an animated racer and in-place HTML panes. Hash links include project build notes; the earlier standalone route remains a compatibility URL. Current browser suite has eight scenarios.
 
-To learn more about Next.js, take a look at the following resources:
+## Adding projects
+Edit src/content/projects.json and place screenshots in public/images/projects. See [the step-by-step guide](docs/24-ADDING-PROJECTS.md). Build and redeploy to publish edits.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Current design/navigation: docs/25-REFERENCE-NAVIGATION.md. Personal introduction and portrait are editable in src/content/profile.json. /info/, /projects/, /skills/, /certificates/ and /contact/ are real static routes.
 
-## Deploy on Vercel
+Latest verification: nine current browser scenarios and eight unit tests; see docs/verification/REPORT.md. Earlier counts above describe previous revisions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Current presentation: docs/26-RESTORED-GARAGE.md restores the compact garage layout with current paths and moving car. Profile and gallery source are preserved but not active in this revision.

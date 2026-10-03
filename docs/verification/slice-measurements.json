@@ -1,0 +1,250 @@
+{
+  "date": "2026-09-26T13:56:38.650Z",
+  "browser": "154.0.4258.37",
+  "method": "Production export served with gzip; cold isolated Edge context. Payload bytes exclude HTTP headers; network entries retain transfer sizes. Not a field Web Vitals or device FPS claim.",
+  "initial": {
+    "js": 139594,
+    "css": 3076,
+    "fonts": 76116,
+    "poster": 14726,
+    "totalEncoded": 237374
+  },
+  "optional": {
+    "js": 300077,
+    "models": 1919
+  },
+  "runtime": {
+    "progress": "0.0022",
+    "drawCalls": 60,
+    "triangles": 1316,
+    "pixelWidth": 738,
+    "pixelHeight": 646
+  },
+  "initialFiles": [
+    {
+      "path": "/",
+      "rawBytes": 15123,
+      "encodedBytes": 3683
+    },
+    {
+      "path": "/images/garage-poster.webp",
+      "rawBytes": 14726,
+      "encodedBytes": 14726
+    },
+    {
+      "path": "/_next/static/chunks/1jre773addfsl.css",
+      "rawBytes": 2955,
+      "encodedBytes": 1219
+    },
+    {
+      "path": "/_next/static/chunks/33o3p5e1v820v.css",
+      "rawBytes": 7573,
+      "encodedBytes": 1857
+    },
+    {
+      "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+      "rawBytes": 5364,
+      "encodedBytes": 1970
+    },
+    {
+      "path": "/_next/static/chunks/19mx3mg6lkumu.js",
+      "rawBytes": 28907,
+      "encodedBytes": 7614
+    },
+    {
+      "path": "/_next/static/chunks/0bma92pht_c97.js",
+      "rawBytes": 229156,
+      "encodedBytes": 71628
+    },
+    {
+      "path": "/_next/static/chunks/344n2zhqbh4pn.js",
+      "rawBytes": 165229,
+      "encodedBytes": 45103
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-154wuuf6u0_13.js",
+      "rawBytes": 9721,
+      "encodedBytes": 3853
+    },
+    {
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "rawBytes": 14377,
+      "encodedBytes": 3661
+    },
+    {
+      "path": "/_next/static/chunks/22i43cg4l4-dq.js",
+      "rawBytes": 8868,
+      "encodedBytes": 3608
+    },
+    {
+      "path": "/_next/static/chunks/28bthpasxv2el.js",
+      "rawBytes": 5338,
+      "encodedBytes": 2157
+    },
+    {
+      "path": "/_next/static/media/source-sans-3-latin-600-normal.1gb2sjkc9m25a.woff2",
+      "rawBytes": 15668,
+      "encodedBytes": 15668
+    },
+    {
+      "path": "/_next/static/media/source-sans-3-latin-400-normal.2zx3zpfpkahss.woff2",
+      "rawBytes": 15696,
+      "encodedBytes": 15696
+    },
+    {
+      "path": "/_next/static/media/barlow-condensed-latin-700-normal.21s4tc4km7afu.woff2",
+      "rawBytes": 22444,
+      "encodedBytes": 22444
+    },
+    {
+      "path": "/_next/static/media/barlow-condensed-latin-600-normal.289y3avl9x-vx.woff2",
+      "rawBytes": 22308,
+      "encodedBytes": 22308
+    },
+    {
+      "path": "/icon.svg",
+      "rawBytes": 220,
+      "encodedBytes": 179
+    }
+  ],
+  "optionalFiles": [
+    {
+      "path": "/_next/static/chunks/1qlnoug3b2ktg.js",
+      "rawBytes": 1079149,
+      "encodedBytes": 300077
+    },
+    {
+      "path": "/models/placeholder-car.gltf",
+      "rawBytes": 10087,
+      "encodedBytes": 1919
+    }
+  ],
+  "network": [
+    {
+      "name": "http://127.0.0.1:3000/images/garage-poster.webp",
+      "startTime": 54.90000009536743,
+      "duration": 16.5,
+      "transferSize": 15026,
+      "encodedBodySize": 14726
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/1jre773addfsl.css",
+      "startTime": 55.40000009536743,
+      "duration": 13.900000095367432,
+      "transferSize": 1519,
+      "encodedBodySize": 1219
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/33o3p5e1v820v.css",
+      "startTime": 55.5,
+      "duration": 12.400000095367432,
+      "transferSize": 2157,
+      "encodedBodySize": 1857
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/310vm2bl3xxpt.js",
+      "startTime": 55.60000014305115,
+      "duration": 25.09999990463257,
+      "transferSize": 2270,
+      "encodedBodySize": 1970
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/19mx3mg6lkumu.js",
+      "startTime": 55.700000047683716,
+      "duration": 29.5,
+      "transferSize": 7914,
+      "encodedBodySize": 7614
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/0bma92pht_c97.js",
+      "startTime": 55.80000019073486,
+      "duration": 37.799999952316284,
+      "transferSize": 71928,
+      "encodedBodySize": 71628
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/344n2zhqbh4pn.js",
+      "startTime": 55.80000019073486,
+      "duration": 48.799999952316284,
+      "transferSize": 45403,
+      "encodedBodySize": 45103
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/turbopack-154wuuf6u0_13.js",
+      "startTime": 55.90000009536743,
+      "duration": 41.40000009536743,
+      "transferSize": 4153,
+      "encodedBodySize": 3853
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/3fntmmi971322.js",
+      "startTime": 56,
+      "duration": 47.200000047683716,
+      "transferSize": 3961,
+      "encodedBodySize": 3661
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/22i43cg4l4-dq.js",
+      "startTime": 56,
+      "duration": 48.10000014305115,
+      "transferSize": 3908,
+      "encodedBodySize": 3608
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/28bthpasxv2el.js",
+      "startTime": 56.10000014305115,
+      "duration": 40.799999952316284,
+      "transferSize": 2457,
+      "encodedBodySize": 2157
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/media/source-sans-3-latin-600-normal.1gb2sjkc9m25a.woff2",
+      "startTime": 92,
+      "duration": 19.800000190734863,
+      "transferSize": 15968,
+      "encodedBodySize": 15668
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/media/source-sans-3-latin-400-normal.2zx3zpfpkahss.woff2",
+      "startTime": 98.40000009536743,
+      "duration": 14,
+      "transferSize": 15996,
+      "encodedBodySize": 15696
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/media/barlow-condensed-latin-700-normal.21s4tc4km7afu.woff2",
+      "startTime": 100.70000004768372,
+      "duration": 65.29999995231628,
+      "transferSize": 22744,
+      "encodedBodySize": 22444
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/media/barlow-condensed-latin-600-normal.289y3avl9x-vx.woff2",
+      "startTime": 100.90000009536743,
+      "duration": 66.20000004768372,
+      "transferSize": 22608,
+      "encodedBodySize": 22308
+    },
+    {
+      "name": "http://127.0.0.1:3000/icon.svg?icon.0xir1nxt2-8gz.svg",
+      "startTime": 256.10000014305115,
+      "duration": 3.5999999046325684,
+      "transferSize": 520,
+      "encodedBodySize": 220
+    },
+    {
+      "name": "http://127.0.0.1:3000/_next/static/chunks/1qlnoug3b2ktg.js",
+      "startTime": 852,
+      "duration": 43.700000047683716,
+      "transferSize": 300377,
+      "encodedBodySize": 300077
+    },
+    {
+      "name": "http://127.0.0.1:3000/models/placeholder-car.gltf",
+      "startTime": 1015.5,
+      "duration": 4.200000047683716,
+      "transferSize": 2219,
+      "encodedBodySize": 1919
+    }
+  ]
+}

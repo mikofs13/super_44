@@ -1,0 +1,25 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Native links provide no-JS navigation; the persistent scene intercepts in-app navigation. */
+import type { Project } from '@/content/project-schema';
+import ProjectPreview from './ProjectPreview';
+import styles from '@/app/page.module.css';
+export function ProjectLinks({ project }: { project: Project }) {
+  return <div className={styles.projectLinks}>
+    {project.links.live && <a className="button" href={project.links.live} target="_blank" rel="noopener noreferrer">Live demo <span className={styles.srOnly}>(opens in a new tab)</span> ↗</a>}
+    {project.links.repo && <a className="textLink" href={project.links.repo} target="_blank" rel="noopener noreferrer">View repository <span className={styles.srOnly}>(opens in a new tab)</span> ↗</a>}
+  </div>;
+}
+export function ProjectCard({ project }: { project: Project }) {
+  return <article className={styles.project}>
+    <a href={`/projects/#project-${project.slug}`} aria-label={`Preview ${project.title}`}><ProjectPreview {...project.preview}/></a>
+    <div><span className={styles.tag}>{project.status}</span><h3>{project.title}</h3><p>{project.summary}</p><ul className={styles.chips} aria-label={`${project.title} technologies`}>{project.stack.map(item=><li key={item}>{item}</li>)}</ul><a className="button" href={`/projects/#project-${project.slug}`}>Explore the build <span className={styles.srOnly}>for {project.title}</span> ↗</a><ProjectLinks project={project}/></div>
+  </article>;
+}
+export function ProjectDetails({ project }: { project: Project }) {
+  return <div className={styles.projectDetails}>
+    <a className="textLink" href="/projects/">← Back to projects</a>
+    <p className={styles.kicker}>{project.status}</p><h2>{project.title}</h2><p>{project.summary}</p>
+    <ProjectPreview {...project.preview}/><ProjectLinks project={project}/>
+    <h3>About the project</h3>{project.description.map((paragraph,index)=><p key={index}>{paragraph}</p>)}
+    <h3>Built with</h3><ul className={styles.chips}>{project.stack.map(item=><li key={item}>{item}</li>)}</ul>
+  </div>;
+}
