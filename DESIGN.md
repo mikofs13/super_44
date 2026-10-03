@@ -19,3 +19,6 @@ Use docs/25-REFERENCE-NAVIGATION.md: a 1320px-max centered window, rounded red b
 
 ## Current restoration
 The owner restored the compact right-aligned garage window, persistent dark tabs and previous About/project-card presentation. Keep current path routes and the moving car on a dark blended pit lane. docs/26-RESTORED-GARAGE.md supersedes the oversized rounded-window direction.
+
+## Current screenshot-driven composition
+Use docs/27-REFERENCE-PROFILE-AND-CONTENT.md: centered window up to 1180px, red persistent browser chrome, yellow active tab, dark reading surface, full-width garage banner and overlapping circular portrait. About content scrolls beneath the persistent chrome. Source Sans 3 provides readable personal content; original pixel world and moving car on the blended pit lane remain. Mobile tabs scroll horizontally; content scrolls vertically. This supersedes compact restoration above.

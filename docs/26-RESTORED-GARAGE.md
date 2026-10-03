@@ -11,3 +11,5 @@ The original moving red car remains below the scene. Dark asphalt, subdued yello
 Project data remains editable in src/content/projects.json. Preview, explanation and optional repository/live links are preserved. The previous single-preview detail presentation is restored; optional gallery source/data is retained but not displayed. profile.json and AboutProfile source are retained but are not rendered in this restoration.
 
 Verification is recorded in verification/REPORT.md. Personal content, actual repo/live destinations, real-device testing and cross-browser checks remain unfinished.
+
+Superseded on 3 October 2026 by [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md). Retained here as historical owner direction.

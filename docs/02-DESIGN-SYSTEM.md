@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 > Current revision: [restored garage with moving car](26-RESTORED-GARAGE.md). This supersedes conflicting visual/layout instructions below; path-based routing is retained.
 
 > Current owner-approved revision: [large window and reference navigation](25-REFERENCE-NAVIGATION.md). It supersedes conflicting layout and routing descriptions below.
@@ -72,6 +74,3 @@ Project images show real product screens with consistent crops and legible detai
 ## Design review gate
 
 Review 1440px, 1024px, 768px, 390px, and 320px layouts with actual long content. Confirm hierarchy without animation, inspect grayscale distinction, verify contrast, and check that the main action remains obvious in the first viewport. No image-generation or final visual asset is included in this documentation pack.
-
-
-

@@ -1,29 +1,22 @@
 # Super 44
 
-The current implementation is the approved red/black pixel circuit and pit garage. Start with [documentation index](docs/00-START-HERE.md) and [current milestone](docs/23-PIXEL-CIRCUIT.md).
+Original red/black/yellow racing portfolio with a moving car and HTML content in a large browser-style window. Start with [index](docs/00-START-HERE.md), [current direction](docs/27-REFERENCE-PROFILE-AND-CONTENT.md) and [content editing guide](docs/28-EDITING-CONTENT.md).
 
-Node 24 and npm; use package-lock.json. Production output is static in out/.
+Edit `src/content/profile.json` for personal details, portrait, education, experience, skills, certificates and contact. Edit `src/content/projects.json` for projects, previews, explanations and optional repository/live links; see [adding projects](docs/24-ADDING-PROJECTS.md). Rebuild and redeploy to publish. Personal content remains incomplete; no identity or claims were invented.
+
+Node 24 and npm with package-lock.json. Production static output is `out/`.
 
 Verified commands:
-- npm run build — production build and static export.
-- npm run lint — ESLint.
-- npm run typecheck — TypeScript.
-- npm run test — seven unit tests covering project content validation and retained historical scene policy.
 
-Browser checks: npm run test:e2e uses installed Microsoft Edge and starts the static preview on port 3000. Browser coverage and limitations are recorded in docs/verification/REPORT.md. Historical 3D e2e tests are in tests/archive and are not part of the current suite.
+- `npm run build`: validates content and generates the static export.
+- `npm run lint`: ESLint.
+- `npm run typecheck`: TypeScript.
+- `npm run test`: 11 unit tests for profile/project validation and historical scene policy.
+- `npm run preview`: serves the export at http://127.0.0.1:3000.
+- `npm run test:e2e`: seven current scenarios using installed Microsoft Edge, including routes, motion, mobile, failed images, no-JavaScript navigation and axe.
 
-The source images in assets-source are editable originals. Public WebP variants are optimized delivery assets. Personal details remain explicitly incomplete; this is not ready for public launch.
+On Windows keep preview in a separate terminal for browser tests. If port 3000 is occupied, set `$env:SUPER44_PORT='3100'` in both preview and test terminals before running those commands. The current verification used the production export on port 3100. See [verification report](docs/verification/REPORT.md) for limitations.
 
-Also verified: npm run preview serves http://127.0.0.1:3000; npm run test:e2e passed all seven current scenarios against that preview. On this Windows host start preview in a separate terminal before e2e to avoid managed-server teardown stalls.
+Home enters `/info/`. Other static routes: `/projects/`, `/skills/`, `/certificates/`, `/contact/`. Project detail URLs: `/projects/#project-SLUG`. Content scrolls inside the window while tabs and controls remain available. Motion Off and reduced motion pause the original racer. Native links provide navigation without JavaScript.
 
-Current interaction: one persistent scene with an animated racer and in-place HTML panes. Hash links include project build notes; the earlier standalone route remains a compatibility URL. Current browser suite has eight scenarios.
-
-## Adding projects
-Edit src/content/projects.json and place screenshots in public/images/projects. See [the step-by-step guide](docs/24-ADDING-PROJECTS.md). Build and redeploy to publish edits.
-
-
-Current design/navigation: docs/25-REFERENCE-NAVIGATION.md. Personal introduction and portrait are editable in src/content/profile.json. /info/, /projects/, /skills/, /certificates/ and /contact/ are real static routes.
-
-Latest verification: nine current browser scenarios and eight unit tests; see docs/verification/REPORT.md. Earlier counts above describe previous revisions.
-
-Current presentation: docs/26-RESTORED-GARAGE.md restores the compact garage layout with current paths and moving car. Profile and gallery source are preserved but not active in this revision.
+Original editable artwork is in `assets-source/`; optimized delivery images are in `public/`. Historical 3D implementation and archived tests are preserved but not loaded on the current landing.

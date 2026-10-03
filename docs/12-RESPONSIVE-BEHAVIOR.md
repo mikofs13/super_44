@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 > Current revision: [restored garage with moving car](26-RESTORED-GARAGE.md). This supersedes conflicting visual/layout instructions below; path-based routing is retained.
 
 > Current owner-approved revision: [large window and reference navigation](25-REFERENCE-NAVIGATION.md). It supersedes conflicting layout and routing descriptions below.
@@ -45,6 +47,3 @@ Recalculate section ranges after layout settles. Preserve the reader's approxima
 ## Acceptance
 
 Test 320, 390, 768, 1024, and 1440 CSS px; landscape phones; 200% zoom; large system text; coarse-pointer desktop; and one modest real phone. There should be no page-level horizontal scrolling, clipped controls, inaccessible menu items, or missing content. Long names and project titles must wrap intentionally.
-
-
-

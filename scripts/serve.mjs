@@ -3,6 +3,8 @@ import path from 'node:path';
 import { readFile, stat } from 'node:fs/promises';
 import { gzipSync } from 'node:zlib';
 const root = path.resolve('out');
+const port = Number(process.env.SUPER44_PORT || 3000);
+if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('SUPER44_PORT must be a port from 1024 to 65535.');
 const types = { '.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json','.gltf':'model/gltf+json','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.txt':'text/plain' };
 http.createServer(async (req,res) => {
   let file;
@@ -19,4 +21,4 @@ http.createServer(async (req,res) => {
       res.setHeader('Content-Encoding','gzip'); res.end(gzipSync(body));
     } else res.end(body);
   } catch { res.statusCode=404; res.setHeader('Content-Type','text/html'); res.end(await readFile(path.join(root,'404.html')).catch(()=>'Not found')); }
-}).listen(3000,'127.0.0.1',()=>console.log('Super 44 production preview: http://127.0.0.1:3000'));
+}).listen(port,'127.0.0.1',()=>console.log('Super 44 production preview: http://127.0.0.1:' + port));

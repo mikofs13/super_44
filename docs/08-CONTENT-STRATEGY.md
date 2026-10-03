@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 # 08 · Content strategy
 
 ## Editorial priority

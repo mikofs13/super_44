@@ -1,6 +1,76 @@
 {
-  "name": "",
-  "role": "",
-  "introduction": [],
-  "photo": { "src": "", "alt": "" }
+  "name": "Michael Feleke Sahle",
+  "role": "Software Engineering student",
+  "introduction": [
+    "I'm a Software Engineering student at Addis Ababa University with a strong passion for building technology that solves real-world problems. I combine academics with hands-on project experience across full-stack web development, IoT, and machine learning.",
+    "I build end-to-end software solutions, from ESP32 plant disease detection systems with Flask APIs to Next.js finance apps that parse SMS bank transactions to track expenses automatically. I'm currently learning machine learning and integrating TensorFlow and data science tools into my web development workflow."
+  ],
+  "photo": {
+    "src": "",
+    "alt": ""
+  },
+  "banner": {
+    "src": "/images/pixel/garage-1600.webp",
+    "alt": "Original Super 44 garage with a red car and driver"
+  },
+  "education": [],
+  "experience": [
+    {
+      "organization": "Addis Tech Group",
+      "role": "Software Engineer",
+      "period": "June 2026 – Present",
+      "context": "",
+      "highlights": [
+        "Build full-stack websites, working across frontend and backend development."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Programming languages",
+      "items": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "C++"
+      ]
+    },
+    {
+      "title": "Web & backend",
+      "items": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "FastAPI",
+        "REST APIs"
+      ]
+    },
+    {
+      "title": "Data & AI",
+      "items": [
+        "PostgreSQL",
+        "Supabase",
+        "TensorFlow",
+        "Machine Learning",
+        "OpenCV",
+        "Computer Vision"
+      ]
+    },
+    {
+      "title": "Tools & hardware",
+      "items": [
+        "Docker",
+        "Git",
+        "GitHub",
+        "ESP32",
+        "Arduino"
+      ]
+    }
+  ],
+  "certificates": [],
+  "contact": {
+    "email": "michaelfeleke13@gmail.com",
+    "message": "Contact details and social links are coming with the complete portfolio.",
+    "links": []
+  }
 }

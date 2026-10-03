@@ -10,6 +10,8 @@ export default function PortfolioShell({ panels, projectPanels, initialView = 'h
   const [enhanced,setEnhanced] = useState(false);
   const [motion,setMotion] = useState(false);
   const [visible,setVisible] = useState(true);
+  const [maximized,setMaximized] = useState(false);
+  const windowRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLDivElement>(null);
   const animation = useRef<Animation|null>(null);
   const frame = useRef(0);
@@ -18,13 +20,20 @@ export default function PortfolioShell({ panels, projectPanels, initialView = 'h
     const reduced=matchMedia('(prefers-reduced-motion: reduce)');
     const syncMotion=()=>{let saved;try{saved=localStorage.getItem('super44.motion.v2')}catch{}setMotion(!reduced.matches&&saved!=='off');if(reduced.matches)animation.current?.cancel()};
     const syncRoute=()=>{const hash=location.hash.slice(1);const routes=projectRoutes.split('|');const path=location.pathname.replace(/\/$/,'');const byPath=tabs.find(tab=>tab.href.replace(/\/$/,'')===path)?.id||'hero';setActive(hash==='build'?(routes[0]||'projects'):routes.includes(hash)||tabs.some(tab=>tab.id===hash)?hash:byPath);};
+    const syncFullscreen=()=>setMaximized(Boolean(document.fullscreenElement));
     const syncVisibility=()=>setVisible(!document.hidden);
     frame.current=requestAnimationFrame(()=>{setEnhanced(true);syncMotion();syncRoute()});
-    reduced.addEventListener('change',syncMotion);window.addEventListener('hashchange',syncRoute);window.addEventListener('popstate',syncRoute);document.addEventListener('visibilitychange',syncVisibility);
-    return()=>{cancelAnimationFrame(frame.current);animation.current?.cancel();reduced.removeEventListener('change',syncMotion);window.removeEventListener('hashchange',syncRoute);window.removeEventListener('popstate',syncRoute);document.removeEventListener('visibilitychange',syncVisibility)};
+    reduced.addEventListener('change',syncMotion);window.addEventListener('hashchange',syncRoute);window.addEventListener('popstate',syncRoute);document.addEventListener('visibilitychange',syncVisibility);document.addEventListener('fullscreenchange',syncFullscreen);
+    return()=>{cancelAnimationFrame(frame.current);animation.current?.cancel();reduced.removeEventListener('change',syncMotion);window.removeEventListener('hashchange',syncRoute);window.removeEventListener('popstate',syncRoute);document.removeEventListener('visibilitychange',syncVisibility);document.removeEventListener('fullscreenchange',syncFullscreen)};
   },[projectRoutes]);
+  async function toggleFullscreen(){
+    if(document.fullscreenElement){await document.exitFullscreen();return}
+    if(maximized){setMaximized(false);return}
+    try{if(windowRef.current?.requestFullscreen)await windowRef.current.requestFullscreen();else setMaximized(true)}catch{setMaximized(true)}
+  }
   function go(id:string){
     if(id==='build')id=projectPanels[0]?.id||'projects';
+    if(id==='hero'){setMaximized(false);if(document.fullscreenElement)void document.exitFullscreen().catch(()=>{});}
     animation.current?.cancel();setActive(id);
     const href=hrefFor(id);if(location.pathname+location.hash!==href)history.pushState(null,'',href);
     cancelAnimationFrame(frame.current);frame.current=requestAnimationFrame(()=>{document.getElementById(id)?.focus({preventScroll:true});document.querySelector('[data-reading-pane]')?.scrollTo(0,0)});
@@ -37,12 +46,18 @@ export default function PortfolioShell({ panels, projectPanels, initialView = 'h
     <header className={styles.header}><a className={styles.wordmark} href="/" onClick={e=>navigate(e,'hero')}>SUPER <span>44</span></a><nav aria-label="Main navigation">{tabs.filter(tab=>["projects","about","contact"].includes(tab.id)).map(tab=><a key={tab.id} href={tab.href} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav></header>
     <main id="main" tabIndex={-1} className={styles.stage}><div className={styles.world} aria-hidden="true"/>
       <section id="hero" tabIndex={-1} className={styles.hero} hidden={opened} aria-labelledby="hero-title"><div className={styles.heroCopy}><p className={styles.kicker}>A developer’s little corner of the grid</p><h1 id="hero-title">SUPER<span>44</span></h1><h2>Welcome to my circuit.</h2><p>Code. Create. Keep moving.</p><a className="button" href="/info/" onClick={e=>navigate(e,'about')}>Enter pit lane <span aria-hidden="true">→</span></a><div className={styles.shortcuts}><a href="/projects/" onClick={e=>navigate(e,'projects')}>Explore projects</a><span>/</span><a href="/contact/" onClick={e=>navigate(e,'contact')}>Say hello</a></div></div></section>
-      <section id="garage" className={styles.garage} hidden={!opened} aria-label="Portfolio window"><div className={styles.window}>
-        <div className={styles.titlebar}><span>SUPER44 / PORTFOLIO</span><a href="/" aria-label="Close portfolio, return to circuit" onClick={e=>navigate(e,'hero')}>×</a></div>
-        <nav className={styles.tabs} aria-label="Portfolio sections">{[tabs[1],tabs[2],tabs[0],tabs[3],tabs[4]].map(tab=><a key={tab.id} href={tab.href} aria-current={active===tab.id||(active.startsWith('project-')&&tab.id==='projects')?'page':undefined} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav>
-        <div className={styles.address}><span aria-hidden="true">↳</span> super44{hrefFor(active)}</div>
+      <section id="garage" className={styles.garage} hidden={!opened} aria-label="Portfolio window"><div ref={windowRef} className={styles.window} data-maximized={maximized}>
+        <div className={styles.browserTop}>
+          <span className={styles.windowDots} aria-hidden="true">● ● ●</span>
+          <nav className={styles.tabs} aria-label="Portfolio sections">{tabs.map(tab=><a key={tab.id} href={tab.href} aria-current={active===tab.id||(active.startsWith('project-')&&tab.id==='projects')?'page':undefined} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav>
+          <div className={styles.windowActions}><button type="button" aria-label={maximized?'Exit fullscreen':'Enter fullscreen'} onClick={toggleFullscreen}>⤢</button><a href="/" aria-label="Close portfolio, return to circuit" onClick={e=>navigate(e,'hero')}>×</a></div>
+        </div>
+        <div className={styles.browserToolbar}>
+          <button type="button" aria-label="Go back" onClick={()=>history.back()}>←</button><button type="button" aria-label="Go forward" onClick={()=>history.forward()}>→</button><button type="button" aria-label="Reload page" onClick={()=>location.reload()}>↻</button>
+          <div className={styles.urlBar}><span aria-hidden="true">⌕</span><span>super44{hrefFor(active)}</span></div>
+        </div>
         <div className={styles.readingPane} data-reading-pane onClick={routeClick}>
-          {[{id:'projects',content:panels[0]},{id:'skills',content:panels[1]},{id:'about',content:panels[2]},{id:'contact',content:panels[3]},{id:'certificates',content:<><p className={styles.kicker}>Learning / Evidence</p><h2>Certificates</h2><p className={styles.note}>Verified certificates will be added here. No credentials have been published yet.</p></>},...projectPanels].map(panel=><section id={panel.id} key={panel.id} tabIndex={-1} className={styles.panel} hidden={active!==panel.id}>{panel.content}</section>)}
+          {[{id:'projects',content:panels[0]},{id:'skills',content:panels[1]},{id:'about',content:panels[2]},{id:'contact',content:panels[3]},{id:'certificates',content:panels[4]},...projectPanels].map(panel=><section id={panel.id} key={panel.id} tabIndex={-1} className={styles.panel} hidden={active!==panel.id}>{panel.content}</section>)}
         </div>
         <div className={styles.status}><span><i/> Garage open</span><span>Built one lap at a time.</span></div>
       </div></section>

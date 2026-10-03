@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 > Current revision: [restored garage with moving car](26-RESTORED-GARAGE.md). This supersedes conflicting visual/layout instructions below; path-based routing is retained.
 
 > Current owner-approved revision: [large window and reference navigation](25-REFERENCE-NAVIGATION.md). It supersedes conflicting layout and routing descriptions below.
@@ -67,6 +69,3 @@ Use demand rendering when idle. Scroll/progress changes invalidate frames; a dam
 ## Security and data
 
 Content is repository-owned and validated. Avoid runtime HTML injection and arbitrary untrusted MDX. Keep secrets out of client code and public environment variables. External links and downloadable assets are checked during release. The default architecture has no account, database, form submissions, or collection of personal visitor data.
-
-
-

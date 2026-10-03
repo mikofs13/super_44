@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 > Current milestone: [approved pixel circuit direction](23-PIXEL-CIRCUIT.md) supersedes conflicting 3D landing, palette, camera, and transition requirements below. Preserve HTML, accessibility, native scroll, and failure recovery rules.
 
 # 03 · UX flow and storyboard
@@ -55,4 +57,3 @@ Use native history restoration where it works. If application routing needs a cu
 The canvas is decorative in v1; pointer events pass through to HTML. Skill selections may alter decorative lighting, but all resulting information exists in the selected HTML panel. Mobile navigation expands inline beneath the header, with Escape-to-close and focus returned to its toggle. Do not trap focus in this nonmodal menu.
 
 Acceptance: keyboard-only users can complete every journey; anchors are not hidden under the header; selecting a navigation item never plays an obligatory travel animation; the contact action is accessible from the initial header.
-

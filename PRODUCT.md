@@ -26,3 +26,6 @@ A substantially larger reference-style browser window opens About first, with po
 
 ## Current restoration
 Restore previous garage presentation while keeping real section paths and the moving car below. The large portrait layout is no longer active. See docs/26-RESTORED-GARAGE.md.
+
+## Current screenshot-driven revision
+The owner now requests the supplied reference screenshots' larger browser-window layout and routes with Super 44's own racing theme. About includes editable portrait, introduction, education and experience. All personal sections and projects use editable files with rebuilds to publish. See docs/27-REFERENCE-PROFILE-AND-CONTENT.md; it supersedes the compact restoration above.

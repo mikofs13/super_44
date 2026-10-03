@@ -1,3 +1,5 @@
+> Current owner direction (3 October 2026): [reference layout and editable content](27-REFERENCE-PROFILE-AND-CONTENT.md) supersedes conflicting presentation and content-authoring details below. Preserve architecture, accessibility, reduced motion and failure recovery contracts.
+
 > Current milestone: [approved pixel circuit direction](23-PIXEL-CIRCUIT.md) supersedes conflicting 3D landing, palette, camera, and transition requirements below. Preserve HTML, accessibility, native scroll, and failure recovery rules.
 
 # 17 · Implementation roadmap
@@ -49,4 +51,3 @@ At every phase record: what is demonstrably working, what remains unverified, bu
 ## Post-launch backlog
 
 Possible additions: a technical case study about the portfolio, more projects, a CMS if updates justify it, optional audio, or a constrained inspect-car mode. Each needs a separate benefit/cost decision. Free driving remains outside the portfolio's default navigation.
-

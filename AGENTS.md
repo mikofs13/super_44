@@ -1,6 +1,6 @@
 # Super 44
 
-Current approved direction: [restored garage with moving car](docs/26-RESTORED-GARAGE.md). Its scope supersedes earlier 3D landing requirements. Preserve the historical implementation without loading it on the current landing.
+Current approved direction: [reference layout and editable content](docs/27-REFERENCE-PROFILE-AND-CONTENT.md). Its scope supersedes earlier 3D landing requirements. Preserve the historical implementation without loading it on the current landing.
 
 Start with [index](docs/00-START-HERE.md) and [roadmap](docs/17-IMPLEMENTATION-ROADMAP.md).
 
@@ -27,7 +27,3 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
-
-
-
-
