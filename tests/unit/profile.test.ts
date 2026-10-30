@@ -10,3 +10,11 @@ test('profile authoring supports add/remove education, experience, credentials a
 test('reject malformed content and unsafe links or image paths',()=>{
  assert.throws(()=>validateProfile({...empty,experience:[{role:'missing organization'}]}),/organization/);assert.throws(()=>validateProfile({...empty,photo:{src:'/images/../secret.png',alt:'test'}}),/photo/);assert.throws(()=>validateProfile({...empty,photo:{src:'/images/profile/me.webp',alt:''}}),/photo/);assert.throws(()=>validateProfile({...empty,contact:{...empty.contact,email:'invalid'}}),/email/);assert.throws(()=>validateProfile({...empty,contact:{...empty.contact,links:[{label:'unsafe',url:'javascript:alert(1)'}]}}),/URL/);
 });
+
+test('certificate documents and previews require safe local paths and alternative text',()=>{
+ const certificate={title:'Test certificate',issuer:'Test issuer',date:'2026',url:'',document:'/certificates/test-certificate.pdf',preview:{src:'/images/certificates/test.webp',alt:'Test certificate preview'}};
+ assert.doesNotThrow(()=>validateProfile({...empty,certificates:[certificate]}));
+ for(const document of ['/certificates/../secret.pdf','https://example.com/file.pdf','/certificates/file.html'])assert.throws(()=>validateProfile({...empty,certificates:[{...certificate,document}]}),/document/);
+ assert.throws(()=>validateProfile({...empty,certificates:[{...certificate,preview:{src:'/images/../secret.png',alt:'Test'}}]}),/preview/);
+ assert.throws(()=>validateProfile({...empty,certificates:[{...certificate,preview:{...certificate.preview,alt:''}}]}),/alt/);
+});

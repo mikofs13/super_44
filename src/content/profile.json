@@ -74,10 +74,33 @@
       ]
     }
   ],
-  "certificates": [],
+  "certificates": [
+    {
+      "title": "Understanding Artificial Intelligence",
+      "issuer": "DataCamp",
+      "date": "August 28, 2026",
+      "url": "",
+      "document": "/certificates/understanding-artificial-intelligence.pdf",
+      "preview": {
+        "src": "/images/certificates/understanding-artificial-intelligence.webp",
+        "alt": "DataCamp statement of accomplishment awarded to Michael Feleke for Understanding Artificial Intelligence, completed August 28, 2026"
+      }
+    },
+    {
+      "title": "Introduction to AI for Work",
+      "issuer": "DataCamp",
+      "date": "September 12, 2026",
+      "url": "",
+      "document": "/certificates/introduction-to-ai-for-work.pdf",
+      "preview": {
+        "src": "/images/certificates/introduction-to-ai-for-work.webp",
+        "alt": "DataCamp statement of accomplishment awarded to Michael Feleke for Introduction to AI for Work, completed September 12, 2026"
+      }
+    }
+  ],
   "contact": {
     "email": "michaelfeleke13@gmail.com",
-    "message": "Contact details and social links are coming with the complete portfolio.",
+    "message": "Have a project, an opportunity, or an idea to explore? Tell me what you have in mind. I’m open to working together on thoughtful software that solves real problems.",
     "links": []
   }
 }

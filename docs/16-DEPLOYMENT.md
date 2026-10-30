@@ -1,5 +1,7 @@
 # 16 · Deployment and operations
 
+Current contact addition: the static site includes a native FormSubmit enquiry form. This supersedes direct-email-only contact below. No server or email credentials were added. Complete recipient activation and a real send/receive test before claiming delivery is operational. See [contact setup](29-CONTACT-FORM.md).
+
 ## Deployment model
 
 Baseline: Next.js static export, locally authored content, pre-generated project pages, and direct email contact. Build artifacts are HTML/CSS/JS plus optimized assets. A static CDN host serves them over HTTPS. No database or server-side API is required.

@@ -13,8 +13,8 @@ Use valid JSON: double quotes, commas between entries, no trailing commas or com
 - `education`: records with `institution`, `qualification`, `location`, `period` strings. The first, second and fourth fields must contain text; location may be empty.
 - `experience`: records with `organization`, `role`, `period`, `context` strings and `highlights` paragraph strings. Organization, role and period must contain text; context and highlights may be empty.
 - `skills`: records with `title` and `items` string arrays. Existing groups and your recent additions are preserved here.
-- `certificates`: records with `title`, `issuer`, `date`, `url` strings. Date may be empty; URL may be empty to hide the credential link.
-- `contact`: `email`, `message` strings and `links` records with `label`, `url`. Empty email hides the email link. Use public HTTP(S) destinations for links.
+- `certificates`: records with `title`, `issuer`, `date`, `url` strings. Date may be empty; URL may be empty to hide the external credential link. Optional `document` is a local PDF path such as `/certificates/my-course.pdf` (file in `public/certificates/`). Optional `preview` has `src` under `/images/` and descriptive `alt`, using the same image rules as your portrait. Both files are checked during build. Only publish certificates you own; copy the original PDF unchanged and use its exact course title, issuer and date. Preview and View certificate links open the PDF in a new tab, while an optional external credential URL stays separate.
+- `contact`: `email`, `message` strings and `links` records with `label`, `url`. The email is also the FormSubmit enquiry recipient; empty email hides the form and direct email link. Changing the recipient requires rebuilding and activation for that address. See [contact setup](29-CONTACT-FORM.md). Use public HTTP(S) destinations for other links.
 
 Record templates below are instructions, not published claims. Replace all text with your verified details before inserting a record into its array:
 

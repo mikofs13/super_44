@@ -1,3 +1,23 @@
+# Latest verification: supplied certificates
+
+30 October 2026. Added two supplied DataCamp course-completion certificates using their actual titles, dates and issuer. Rendered and inspected each first page with Poppler, generated 1200 x 693 WebP previews (53,854 and 52,254 bytes), and copied the original PDFs unchanged. SHA-256 comparisons match both original/copied files. Responsive cards retain selectable HTML metadata and native new-tab PDF links; failure of a preview preserves document access.
+
+Passed: production build, lint, TypeScript, all 12 unit tests and all 12 Edge browser scenarios against the static export on port 3108 (55.0s). New unit coverage validates optional certificate documents/previews and rejects unsafe paths or missing alternative text. New browser coverage checks both course titles/dates, loaded previews, exact PDF hrefs/target, 200 application/pdf responses with PDF headers, mobile width/second-card access, preview request failure, no-JavaScript links and axe with zero detected violations. Existing contact tests intercepted all submissions; no real messages were sent.
+
+Inspected certificates-desktop.png and certificates-mobile.png. Cards use two columns on desktop and one on mobile, with full uncropped original artwork. No external credential verification was attempted and no accreditation claim was invented. No physical-device, other-browser, manual screen-reader, performance-profile or deployment checks were performed. Existing contact delivery still needs owner activation and a real inbox check.
+
+---
+# Latest verification: contact email form
+
+30 October 2026. Added a native POST enquiry form addressed to the profile email through FormSubmit, direct email fallback, hosted spam-check flow, honeypot, required/format/length constraints and privacy disclosure. No server, secret, third-party browser script or custom submission handler was added.
+
+Passed: production build, lint, TypeScript and all eleven Edge browser scenarios on the production preview at 127.0.0.1:3107 (36.1s). The new contact scenario checks invalid/valid fields, destination/method, posted values, no CAPTCHA bypass, automated axe (zero detected violations), mobile width and native submission without JavaScript. POST requests are fulfilled locally by Playwright; no form data or activation message was sent to FormSubmit. A focused rerun adds an explicit mailto-fallback assertion and mobile submit-control screenshot.
+
+Inspected contact-desktop.png and contact-mobile.png. Contact content scrolls within the existing native reading pane. Unit tests were not rerun for this HTML/CSS-only addition; their earlier eleven-test pass is historical evidence.
+
+Required setup still pending: owner submits a real test, completes provider spam check, confirms the activation email in their inbox and verifies receipt/reply. Live service availability, actual inbox delivery, activation, physical devices, other browsers, manual screen readers and deployment were not verified. See ../29-CONTACT-FORM.md. Direct provider-page fetches failed in the web tool; official documentation was available through search. Do not report the email delivery as operational until activation and a real delivery check are complete.
+
+---
 # Latest verification: Enicharet project
 
 30 October 2026. Added Enicharet using its local README/progress/package manifest and two inspected existing artifacts, plus the owner-confirmed repository. GitHub repository metadata supplies the configured demo URL. No app/database operations were performed in the Enicharet workspace. The entry clearly describes a test-money prototype.

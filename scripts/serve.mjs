@@ -5,7 +5,7 @@ import { gzipSync } from 'node:zlib';
 const root = path.resolve('out');
 const port = Number(process.env.SUPER44_PORT || 3000);
 if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('SUPER44_PORT must be a port from 1024 to 65535.');
-const types = { '.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json','.gltf':'model/gltf+json','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.txt':'text/plain' };
+const types = { '.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json','.gltf':'model/gltf+json','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.pdf':'application/pdf','.svg':'image/svg+xml','.woff2':'font/woff2','.txt':'text/plain' };
 http.createServer(async (req,res) => {
   let file;
   try {

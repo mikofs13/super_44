@@ -4,7 +4,7 @@ export type Profile = {
   education: { institution: string; qualification: string; location: string; period: string }[];
   experience: { organization: string; role: string; period: string; context: string; highlights: string[] }[];
   skills: { title: string; items: string[] }[];
-  certificates: { title: string; issuer: string; date: string; url: string }[];
+  certificates: { title: string; issuer: string; date: string; url: string; document?: string; preview?: Media }[];
   contact: { email: string; message: string; links: { label: string; url: string }[] };
 };
 export function validateProfile(input: unknown): asserts input is Profile {
@@ -39,7 +39,15 @@ export function validateProfile(input: unknown): asserts input is Profile {
     const row = object(entry, 'experience item'); for (const field of ['organization', 'role', 'period']) text(row[field], `experience.${field}`, true); text(row.context, 'experience.context'); texts(row.highlights, 'experience.highlights');
   }
   for (const entry of array(profile.skills, 'skills')) { const row = object(entry, 'skills item'); text(row.title, 'skills.title', true); texts(row.items, 'skills.items'); }
-  for (const entry of array(profile.certificates, 'certificates')) { const row = object(entry, 'certificate'); text(row.title, 'certificate.title', true); text(row.issuer, 'certificate.issuer', true); text(row.date, 'certificate.date'); url(row.url, 'certificate.url', true); }
+  for (const entry of array(profile.certificates, 'certificates')) {
+    const row = object(entry, 'certificate'); text(row.title, 'certificate.title', true); text(row.issuer, 'certificate.issuer', true); text(row.date, 'certificate.date'); url(row.url, 'certificate.url', true);
+    if (row.document !== undefined && (typeof row.document !== 'string' || !/^\/certificates\/[a-z0-9-]+\.pdf$/.test(row.document))) fail('certificate.document must be a local /certificates/ PDF path.');
+    if (row.preview !== undefined) {
+      const media = object(row.preview, 'certificate.preview');
+      if (typeof media.src !== 'string' || !/^\/images\/[a-zA-Z0-9/_-]+\.(webp|png|jpe?g|avif)$/.test(media.src)) fail('certificate.preview.src must be a local /images/ path.');
+      text(media.alt, 'certificate.preview.alt', true);
+    }
+  }
   const contact = object(profile.contact, 'contact'); text(contact.email, 'contact.email'); text(contact.message, 'contact.message');
   if (contact.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email as string)) fail('contact.email must be an email address or an empty string.');
   for (const entry of array(contact.links, 'contact.links')) { const row = object(entry, 'contact link'); text(row.label, 'contact.link.label', true); url(row.url, 'contact.link.url'); }
