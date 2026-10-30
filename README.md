@@ -13,7 +13,7 @@ Verified commands:
 - `npm run typecheck`: TypeScript.
 - `npm run test`: 11 unit tests for profile/project validation and historical scene policy.
 - `npm run preview`: serves the export at http://127.0.0.1:3000.
-- `npm run test:e2e`: seven current scenarios using installed Microsoft Edge, including routes, motion, mobile, failed images, no-JavaScript navigation and axe.
+- `npm run test:e2e`: ten current scenarios using installed Microsoft Edge, including routes, motion, mobile, failed images, no-JavaScript navigation and axe.
 
 On Windows keep preview in a separate terminal for browser tests. If port 3000 is occupied, set `$env:SUPER44_PORT='3100'` in both preview and test terminals before running those commands. The current verification used the production export on port 3100. See [verification report](docs/verification/REPORT.md) for limitations.
 

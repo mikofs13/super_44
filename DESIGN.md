@@ -22,3 +22,7 @@ The owner restored the compact right-aligned garage window, persistent dark tabs
 
 ## Current screenshot-driven composition
 Use docs/27-REFERENCE-PROFILE-AND-CONTENT.md: centered window up to 1180px, red persistent browser chrome, yellow active tab, dark reading surface, full-width garage banner and overlapping circular portrait. About content scrolls beneath the persistent chrome. Source Sans 3 provides readable personal content; original pixel world and moving car on the blended pit lane remain. Mobile tabs scroll horizontally; content scrolls vertically. This supersedes compact restoration above.
+
+Latest Projects view uses a shared screenshot stage with manual side arrows and dots, followed by project summary and links, then separate project navigation. Preserve the detailed view behind image/title/Explore links. Super 44 is no longer listed as a project. See docs/27-REFERENCE-PROFILE-AND-CONTENT.md.
+
+Latest screenshot correction: the overview stage displays one image at a time, switched manually with arrows/dots. Use a stable responsive frame and object-fit: contain for mixed portrait/landscape ratios. The detail gallery remains available behind the clickable image.

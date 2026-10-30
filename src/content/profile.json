@@ -13,7 +13,14 @@
     "src": "/images/pixel/garage-1600.webp",
     "alt": "Original Super 44 garage with a red car and driver"
   },
-  "education": [],
+  "education": [
+    {
+      "institution": "Addis Ababa University",
+      "qualification": "Bachelor of Science in Software Engineering and Computing Technology",
+      "location": "",
+      "period": "2025 – 2030"
+    }
+  ],
   "experience": [
     {
       "organization": "Addis Tech Group",

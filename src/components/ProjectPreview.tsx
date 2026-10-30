@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import styles from '@/app/page.module.css';
-export default function ProjectPreview({ src, alt }: { src: string; alt: string }) {
+export default function ProjectPreview({ src, alt, contain = false }: { src: string; alt: string; contain?: boolean }) {
   const [failed, setFailed] = useState(false);
   const image = useRef<HTMLImageElement>(null);
   useEffect(() => {
@@ -15,6 +15,6 @@ export default function ProjectPreview({ src, alt }: { src: string; alt: string 
     {failed ? <p className={styles.previewFallback}>Preview unavailable</p> :
       // Local, build-validated images, exported without an image optimization server.
       // eslint-disable-next-line @next/next/no-img-element
-      <img ref={image} src={src} alt={alt} width={800} height={450} loading="lazy" onError={() => setFailed(true)} />}
+      <img ref={image} src={src} alt={alt} width={800} height={450} style={contain ? { objectFit: 'contain' } : undefined} loading="lazy" onError={() => setFailed(true)} />}
   </div>;
 }
