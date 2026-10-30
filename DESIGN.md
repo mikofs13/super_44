@@ -26,3 +26,5 @@ Use docs/27-REFERENCE-PROFILE-AND-CONTENT.md: centered window up to 1180px, red 
 Latest Projects view uses a shared screenshot stage with manual side arrows and dots, followed by project summary and links, then separate project navigation. Preserve the detailed view behind image/title/Explore links. Super 44 is no longer listed as a project. See docs/27-REFERENCE-PROFILE-AND-CONTENT.md.
 
 Latest screenshot correction: the overview stage displays one image at a time, switched manually with arrows/dots. Use a stable responsive frame and object-fit: contain for mixed portrait/landscape ratios. The detail gallery remains available behind the clickable image.
+
+Latest space allocation: remove the separate footer below the car and use its height for the main portfolio window. The scene occupies the viewport below the header; the lane remains at the bottom. Keep Motion control in the window toolbar and welcome screen, including fullscreen access. See docs/27-REFERENCE-PROFILE-AND-CONTENT.md.

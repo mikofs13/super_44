@@ -1,3 +1,14 @@
+# Latest verification: footer removal and larger window
+
+30 October 2026. Removed the footer below the car and its grid row. The scene/window now gain 44px on desktop and 42px on mobile. The lane stays at the bottom edge; Motion control moved into the browser toolbar and welcome screen using a shared handler/state.
+
+Passed: production build, lint, TypeScript and all 13 Edge browser scenarios against the exported site on port 3108 (47.7s). Added viewport geometry checks at 1440 x 1000 and 390 x 844 for no footer, scene/lane bottom aligned with viewport, larger window height, no document overflow, and motion control visible in the window, fullscreen and home. Existing route, keyboard, reduced-motion, pause persistence, image recovery, form interception, PDF, no-JavaScript and axe scenarios passed. Unit tests were not rerun for this layout/interaction change; their prior 12-test pass remains historical evidence.
+
+The first browser run exposed an early Skip-to-portfolio race: focus scheduling canceled the shared frame that should initialize the enhanced layout. Initialization now has its own local frame handle; both handles are canceled on unmount. A fresh production build and the full browser suite passed after this correction.
+
+Inspected expanded-window-desktop.png and expanded-window-mobile.png. No physical-device, additional-browser, manual screen-reader, performance-profile or deployment checks were performed. Contact inbox activation remains pending; tests send no real email.
+
+---
 # Latest verification: supplied certificates
 
 30 October 2026. Added two supplied DataCamp course-completion certificates using their actual titles, dates and issuer. Rendered and inspected each first page with Poppler, generated 1200 x 693 WebP previews (53,854 and 52,254 bytes), and copied the original PDFs unchanged. SHA-256 comparisons match both original/copied files. Responsive cards retain selectable HTML metadata and native new-tab PDF links; failure of a preview preserves document access.
