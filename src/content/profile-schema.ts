@@ -1,8 +1,11 @@
 export type Media = { src: string; alt: string };
+export type Experience = { organization: string; role: string; period: string; context: string; highlights: string[] };
 export type Profile = {
   name: string; role: string; introduction: string[]; photo: Media; banner: Media;
-  education: { institution: string; qualification: string; location: string; period: string }[];
-  experience: { organization: string; role: string; period: string; context: string; highlights: string[] }[];
+  education: { institution: string; qualification: string; location: string; period: string; results?: { label: string; value: string; detail?: string }[] }[];
+  honors?: { title: string; context: string; period: string }[];
+  activities?: Experience[];
+  experience: Experience[];
   skills: { title: string; items: string[] }[];
   certificates: { title: string; issuer: string; date: string; url: string; document?: string; preview?: Media }[];
   contact: { email: string; message: string; links: { label: string; url: string }[] };
@@ -34,9 +37,29 @@ export function validateProfile(input: unknown): asserts input is Profile {
   }
   for (const entry of array(profile.education, 'education')) {
     const row = object(entry, 'education item'); for (const field of ['institution', 'qualification', 'period']) text(row[field], `education.${field}`, true); text(row.location, 'education.location');
+    if (row.results !== undefined) {
+      for (const entry of array(row.results, 'education.results')) {
+        const result = object(entry, 'education result');
+        text(result.label, 'education.results.label', true);
+        text(result.value, 'education.results.value', true);
+        if (result.detail !== undefined) text(result.detail, 'education.results.detail', true);
+      }
+    }
   }
-  for (const entry of array(profile.experience, 'experience')) {
-    const row = object(entry, 'experience item'); for (const field of ['organization', 'role', 'period']) text(row[field], `experience.${field}`, true); text(row.context, 'experience.context'); texts(row.highlights, 'experience.highlights');
+  if (profile.honors !== undefined) {
+    for (const entry of array(profile.honors, 'honors')) {
+      const row = object(entry, 'honor');
+      for (const field of ['title', 'context', 'period']) text(row[field], `honors.${field}`, true);
+    }
+  }
+  for (const section of ['activities', 'experience']) {
+    if (section === 'activities' && profile.activities === undefined) continue;
+    for (const entry of array(profile[section], section)) {
+      const row = object(entry, `${section} item`);
+      for (const field of ['organization', 'role', 'period']) text(row[field], `${section}.${field}`, true);
+      text(row.context, `${section}.context`);
+      texts(row.highlights, `${section}.highlights`);
+    }
   }
   for (const entry of array(profile.skills, 'skills')) { const row = object(entry, 'skills item'); text(row.title, 'skills.title', true); texts(row.items, 'skills.items'); }
   for (const entry of array(profile.certificates, 'certificates')) {

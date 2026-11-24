@@ -1,9 +1,9 @@
 {
   "name": "Michael Feleke Sahle",
-  "role": "Software Engineering student",
+  "role": "Mathematics, artificial intelligence and engineering",
   "introduction": [
-    "I'm a Software Engineering student at Addis Ababa University with a strong passion for building technology that solves real-world problems. I combine academics with hands-on project experience across full-stack web development, IoT, and machine learning.",
-    "I build end-to-end software solutions, from ESP32 plant disease detection systems with Flask APIs to Next.js finance apps that parse SMS bank transactions to track expenses automatically. I'm currently learning machine learning and integrating TensorFlow and data science tools into my web development workflow."
+    "I’m interested in how mathematics and artificial intelligence can help solve practical problems in Ethiopia. I’ve worked on an agriculture toolkit that uses machine learning and environmental sensors, and on a mobile finance app that organizes transactions from bank SMS alerts.",
+    "I founded mathematics, debate and chess clubs at school. I enjoy exploring ideas with other students, whether we’re working through a math problem or preparing for a debate."
   ],
   "photo": {
     "src": "",
@@ -15,10 +15,75 @@
   },
   "education": [
     {
-      "institution": "Addis Ababa University",
-      "qualification": "Bachelor of Science in Software Engineering and Computing Technology",
+      "institution": "Neway Challenge Academy",
+      "qualification": "High school graduate",
       "location": "",
-      "period": "2025 – 2030"
+      "period": "Graduated July 2025",
+      "results": [
+        {
+          "label": "Academic average",
+          "value": "97.7%"
+        },
+        {
+          "label": "Class rank",
+          "value": "2 of 267"
+        },
+        {
+          "label": "National university entrance exam",
+          "value": "550/600",
+          "detail": "Top 0.2% nationally"
+        }
+      ]
+    }
+  ],
+  "honors": [
+    {
+      "title": "Ethiopian Mathematics Olympiad finalist",
+      "context": "National competition",
+      "period": "2023"
+    },
+    {
+      "title": "First place, engineering fair",
+      "context": "Team award for the smart agriculture toolkit at the Ethiopian Academy of Sciences",
+      "period": "High school"
+    },
+    {
+      "title": "Best Delegate",
+      "context": "Model diplomacy program",
+      "period": "High school"
+    }
+  ],
+  "activities": [
+    {
+      "organization": "Ethiopian Academy of Sciences",
+      "role": "Engineering program participant and project developer",
+      "period": "High school",
+      "context": "Smart agriculture",
+      "highlights": [
+        "Completed a two-month program in programming and electronics.",
+        "Developed a smart agriculture toolkit combining machine learning for plant disease detection with environmental sensors and crop recommendations."
+      ]
+    },
+    {
+      "organization": "Space Science and Geospatial Institute (SSGI) and Boeing",
+      "role": "Pathways to Space program participant",
+      "period": "2024",
+      "context": "Engineering team project",
+      "highlights": [
+        "Collaborated on the design and construction of a structure intended to withstand a drop from approximately 30 km altitude."
+      ]
+    },
+    {
+      "organization": "Neway Challenge Academy",
+      "role": "Student club founder and debate club president",
+      "period": "High school",
+      "context": "Student leadership",
+      "highlights": [
+        "Founded a mathematics club and helped peers explore mathematical concepts beyond the school curriculum.",
+        "Founded and led the debate club for three years, supporting discussion and public speaking.",
+        "Founded a chess club to bring together students interested in strategy and problem-solving.",
+        "Helped administer the student council presidential election."
+      ]
     }
   ],
   "experience": [
@@ -39,7 +104,8 @@
         "Python",
         "JavaScript",
         "TypeScript",
-        "C++"
+        "C++",
+        "Java (learning)"
       ]
     },
     {
@@ -49,7 +115,9 @@
         "Next.js",
         "Node.js",
         "FastAPI",
-        "REST APIs"
+        "REST APIs",
+        "React Native",
+        "Expo"
       ]
     },
     {

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type ReactNode, type MouseEvent } from 're
 import styles from './page.module.css';
 const tabs = [{id:'about',label:'About',href:'/info/'},{id:'projects',label:'Projects',href:'/projects/'},{id:'skills',label:'Skills',href:'/skills/'},{id:'certificates',label:'Certificates',href:'/certificates/'},{id:'contact',label:'Contact',href:'/contact/'}];
 const hrefFor = (id: string) => id.startsWith('project-') ? `/projects/#${id}` : tabs.find(tab=>tab.id===id)?.href || '/';
-export default function PortfolioShell({ panels, projectPanels, initialView = 'hero' }: { panels: ReactNode[]; projectPanels: { id: string; title: string; content: ReactNode }[]; initialView?: string }) {
+export default function PortfolioShell({ name, panels, projectPanels, initialView = 'hero' }: { name: string; panels: ReactNode[]; projectPanels: { id: string; title: string; content: ReactNode }[]; initialView?: string }) {
   const projectRoutes = projectPanels.map(project=>project.id).join('|');
   const [active,setActive] = useState(initialView);
   const [enhanced,setEnhanced] = useState(false);
@@ -48,7 +48,7 @@ export default function PortfolioShell({ panels, projectPanels, initialView = 'h
     <a className="skip" href="#main" onClick={e=>navigate(e,'about')}>Skip to portfolio</a>
     <header className={styles.header}><a className={styles.wordmark} href="/" onClick={e=>navigate(e,'hero')}>SUPER <span>44</span></a><nav aria-label="Main navigation">{tabs.filter(tab=>["projects","about","contact"].includes(tab.id)).map(tab=><a key={tab.id} href={tab.href} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav></header>
     <main id="main" tabIndex={-1} className={styles.stage}><div className={styles.world} aria-hidden="true"/>
-      <section id="hero" tabIndex={-1} className={styles.hero} hidden={opened} aria-labelledby="hero-title"><div className={styles.heroCopy}><p className={styles.kicker}>A developer’s little corner of the grid</p><h1 id="hero-title">SUPER<span>44</span></h1><h2>Welcome to my circuit.</h2><p>Code. Create. Keep moving.</p><a className="button" href="/info/" onClick={e=>navigate(e,'about')}>Enter pit lane <span aria-hidden="true">→</span></a><div className={styles.shortcuts}><a href="/projects/" onClick={e=>navigate(e,'projects')}>Explore projects</a><span>/</span><a href="/contact/" onClick={e=>navigate(e,'contact')}>Say hello</a></div>{motionControl}</div></section>
+      <section id="hero" tabIndex={-1} className={styles.hero} hidden={opened} aria-labelledby="hero-title"><div className={styles.heroCopy}><h1 id="hero-title">SUPER<span>44</span></h1>{name && <h2>{name}</h2>}<p>Academic achievements, student leadership and engineering projects.</p><a className="button" href="/info/" onClick={e=>navigate(e,'about')}>Enter pit lane <span aria-hidden="true">→</span></a><div className={styles.shortcuts}><a href="/projects/" onClick={e=>navigate(e,'projects')}>Explore projects</a><span>/</span><a href="/contact/" onClick={e=>navigate(e,'contact')}>Say hello</a></div>{motionControl}</div></section>
       <section id="garage" className={styles.garage} hidden={!opened} aria-label="Portfolio window"><div ref={windowRef} className={styles.window} data-maximized={maximized}>
         <div className={styles.browserTop}>
           <span className={styles.windowDots} aria-hidden="true">● ● ●</span>

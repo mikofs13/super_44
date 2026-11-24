@@ -1,16 +1,19 @@
 # Edit your portfolio
 
-Edit `src/content/profile.json` for your identity, About, education, experience, skills, certificates and contact. Edit `src/content/projects.json` for projects, screenshots, explanations and repository/live links; see [project guide](24-ADDING-PROJECTS.md).
+Edit `src/content/profile.json` for your identity, About, education, honors, activities, experience, skills, certificates and contact. Edit `src/content/projects.json` for projects, screenshots, explanations and repository/live links. See the [project guide](24-ADDING-PROJECTS.md).
 
-Use valid JSON: double quotes, commas between entries, no trailing commas or comments. Keep the existing top-level keys. Array order is display order; delete a record to remove it. Empty arrays are allowed. Empty About/education/experience/certificates show honest pending messages.
+Use double quotes and commas between entries. JSON does not allow trailing commas or comments. Array order is display order. Delete a record to remove it. Empty sections on About are hidden.
 
 ## Profile fields
 
 - `name`, `role`: your public name and professional role; empty strings retain placeholders.
 - `introduction`: paragraph strings, for example `["Your verified personal introduction.", "What you enjoy building."]`.
-- `photo`: `{ "src": "/images/profile/me.webp", "alt": "Portrait of your name" }`. Put your actual owned portrait at `public/images/profile/me.webp`. Leave `src` empty for the silhouette.
+- `photo` supports `{ "src": "/images/profile/me.webp", "alt": "Portrait of your name" }`. Put your actual owned portrait at `public/images/profile/me.webp`. Leave `src` empty to hide the portrait.
 - `banner`: same image shape; the existing original garage is the default. Supported local formats: WebP, PNG, JPEG and AVIF. Set descriptive alternative text whenever a source is supplied. `/images/` paths omit `public`.
 - `education`: records with `institution`, `qualification`, `location`, `period` strings. The first, second and fourth fields must contain text; location may be empty.
+- `education.results` is optional. Each result has a `label` and a `value`, with an optional `detail` for context such as national standing.
+- `honors` is optional. Each award has a `title`, `context` and `period`. Use the official award name and identify team awards in the context.
+- `activities` is optional and uses the same fields as `experience`. List clubs, leadership and academic programs with the contributions you can describe accurately.
 - `experience`: records with `organization`, `role`, `period`, `context` strings and `highlights` paragraph strings. Organization, role and period must contain text; context and highlights may be empty.
 - `skills`: records with `title` and `items` string arrays. Existing groups and your recent additions are preserved here.
 - `certificates`: records with `title`, `issuer`, `date`, `url` strings. Date may be empty; URL may be empty to hide the external credential link. Optional `document` is a local PDF path such as `/certificates/my-course.pdf` (file in `public/certificates/`). Optional `preview` has `src` under `/images/` and descriptive `alt`, using the same image rules as your portrait. Both files are checked during build. Only publish certificates you own; copy the original PDF unchanged and use its exact course title, issuer and date. Preview and View certificate links open the PDF in a new tab, while an optional external credential URL stays separate.

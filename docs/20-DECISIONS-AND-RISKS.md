@@ -104,3 +104,7 @@ Owner requested integration of two supplied PDFs with the existing UI. Inspected
 Owner requested removing the strip below the moving car and allocating that space to the main portfolio window. Removed the footer markup and its dedicated grid row at all breakpoints; scene/window gain the freed height while the car stays on the bottom edge. Moved the required Motion control to the portfolio toolbar and welcome screen, preserving its single state/handler, stored preference and reduced-motion behavior. Duplicate footer navigation was unnecessary because the main header and section tabs remain. Fullscreen retains access to Motion. See the [current specification](27-REFERENCE-PROFILE-AND-CONTENT.md).
 
 Browser verification exposed an early-keyboard-navigation race: scheduling focus used the same animation-frame handle as layout initialization, so Skip could cancel initialization before the first frame. Initialization now owns a separate local handle, and both callbacks are cleaned up on unmount. The keyboard-entry regression is included in the browser rerun.
+
+## 24 November 2026 · Admissions-focused profile
+
+Use the owner’s updated profile as the source for school results, awards and activities. Remove the university bio reference and degree entry. Present award and leadership details in distinct sections, keep employment under Experience, and retain the original garage theme and project routes. Show a portrait when the owner supplies one. See the [current specification](27-REFERENCE-PROFILE-AND-CONTENT.md) and [editing guide](28-EDITING-CONTENT.md).

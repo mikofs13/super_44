@@ -3,6 +3,15 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateProfile } from '../../src/content/profile-schema.ts';
 const empty = JSON.parse(readFileSync('src/content/profile.json','utf8').replace(/^\uFEFF/,''));
+test('academic results, honors and activities validate while older profiles still work', () => {
+  const { activities, honors, education, ...rest } = empty;
+  const [school] = education;
+  const { results, ...olderSchool } = school;
+  assert.doesNotThrow(() => validateProfile({ ...rest, education: [olderSchool] }));
+  assert.throws(() => validateProfile({ ...empty, education: [{ ...school, results: [{ ...results[0], value: '' }] }] }), /education\.results\.value/);
+  assert.throws(() => validateProfile({ ...empty, honors: [{ ...honors[0], title: '' }] }), /honors\.title/);
+  assert.throws(() => validateProfile({ ...empty, activities: [{ ...activities[0], highlights: 'invalid' }] }), /activities\.highlights/);
+});
 test('empty optional personal sections and current skill content are valid',()=>assert.doesNotThrow(()=>validateProfile(empty)));
 test('profile authoring supports add/remove education, experience, credentials and contacts',()=>{
  const record={...empty,education:[{institution:'Test institution',qualification:'Test qualification',location:'',period:'2020–2024'}],experience:[{organization:'Test organization',role:'Test role',period:'2024',context:'',highlights:['Test fixture']}],certificates:[{title:'Test credential',issuer:'Test issuer',date:'',url:'https://example.com/credential'}],contact:{email:'test@example.com',message:'Test fixture',links:[{label:'GitHub',url:'https://github.com/example'}]}};assert.doesNotThrow(()=>validateProfile(record));assert.doesNotThrow(()=>validateProfile({...record,education:[],experience:[],certificates:[]}));

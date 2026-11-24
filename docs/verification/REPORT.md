@@ -92,3 +92,7 @@ Verified: entry to /info/, all five direct section paths, project details and re
 Inspected restored-garage.png and restored-mobile.png. Final small layout adjustment keeps the status bar at the bottom of the mobile window; followed by a fresh build and focused mobile/desktop visual checks.
 
 Not performed: physical-device testing, Safari/Firefox, manual screen-reader review, performance profiling or deployment. Existing personal content and external project URL gaps remain. Previously added large-window/profile/gallery source is preserved but not rendered. Current routing remains, while the visual browser toolbar/fullscreen UI was reverted with the rest of the large-window design.
+
+## 24 November 2026 · College application portfolio
+
+The production export, ESLint, TypeScript, and 13 unit tests passed. Edge coverage exercised the admissions content, pane scrolling, route history, keyboard entry, reduced motion, failed artwork, no-JavaScript navigation, and axe scans. The profile was reviewed in Edge at 1440px, 390px and 320px. Physical devices and additional browser engines were outside this check.
