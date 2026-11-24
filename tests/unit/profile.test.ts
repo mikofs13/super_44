@@ -11,6 +11,7 @@ test('academic results, honors and activities validate while older profiles stil
   assert.throws(() => validateProfile({ ...empty, education: [{ ...school, results: [{ ...results[0], value: '' }] }] }), /education\.results\.value/);
   assert.throws(() => validateProfile({ ...empty, honors: [{ ...honors[0], title: '' }] }), /honors\.title/);
   assert.throws(() => validateProfile({ ...empty, activities: [{ ...activities[0], highlights: 'invalid' }] }), /activities\.highlights/);
+  assert.throws(() => validateProfile({ ...empty, activities: [{ ...activities[0], commitment: 10 }] }), /activities\.commitment/);
 });
 test('empty optional personal sections and current skill content are valid',()=>assert.doesNotThrow(()=>validateProfile(empty)));
 test('profile authoring supports add/remove education, experience, credentials and contacts',()=>{

@@ -3,11 +3,11 @@
   "role": "Mathematics, artificial intelligence and engineering",
   "introduction": [
     "I’m interested in how mathematics and artificial intelligence can help solve practical problems in Ethiopia. I’ve worked on an agriculture toolkit that uses machine learning and environmental sensors, and on a mobile finance app that organizes transactions from bank SMS alerts.",
-    "I founded mathematics, debate and chess clubs at school. I enjoy exploring ideas with other students, whether we’re working through a math problem or preparing for a debate."
+    "I also co-founded my school’s chess club, served as debate club secretary and helped organize local outreach. I enjoy exploring ideas with other students, whether we’re working through a math problem or preparing for a debate."
   ],
   "photo": {
-    "src": "",
-    "alt": ""
+    "src": "/images/profile/michael-feleke-sahle.jpg",
+    "alt": "Portrait of Michael Feleke Sahle"
   },
   "banner": {
     "src": "/images/pixel/garage-1600.webp",
@@ -38,51 +38,115 @@
   ],
   "honors": [
     {
-      "title": "Ethiopian Mathematics Olympiad finalist",
-      "context": "National competition",
-      "period": "2023"
-    },
-    {
       "title": "First place, engineering fair",
       "context": "Team award for the smart agriculture toolkit at the Ethiopian Academy of Sciences",
       "period": "High school"
     },
     {
-      "title": "Best Delegate",
-      "context": "Model diplomacy program",
-      "period": "High school"
+      "title": "Ethiopian Mathematics Olympiad finalist",
+      "context": "National competition · 7th place in Addis Ababa",
+      "period": "2023"
     }
   ],
   "activities": [
     {
       "organization": "Ethiopian Academy of Sciences",
-      "role": "Engineering program participant and project developer",
-      "period": "High school",
-      "context": "Smart agriculture",
+      "role": "Team Leader, Programmer and Electrician",
+      "period": "Grade 12 and post-graduation",
+      "context": "Science & Math",
+      "commitment": "During school and breaks · 10 hr/week · 12 weeks/year",
       "highlights": [
-        "Completed a two-month program in programming and electronics.",
-        "Developed a smart agriculture toolkit combining machine learning for plant disease detection with environmental sensors and crop recommendations."
+        "Led my team at one of Ethiopia’s 40 STEAM centers in designing an IoT system that recommends crops and detects plant diseases for Ethiopian farmers. The project earned first place at the engineering fair."
       ]
     },
     {
-      "organization": "Space Science and Geospatial Institute (SSGI) and Boeing",
-      "role": "Pathways to Space program participant",
-      "period": "2024",
-      "context": "Engineering team project",
+      "organization": "Space Science and Geospatial Institute",
+      "role": "Team Leader and Mechanical Engineer",
+      "period": "Grades 10–11",
+      "context": "Science & Math",
+      "commitment": "During school and breaks · 10 hr/week · 10 weeks/year",
       "highlights": [
-        "Collaborated on the design and construction of a structure intended to withstand a drop from approximately 30 km altitude."
+        "Led my team in designing a structure that kept an egg intact after a drop from 30 km. The project won an international award for creative problem-solving and innovative design."
       ]
     },
     {
-      "organization": "Neway Challenge Academy",
-      "role": "Student club founder and debate club president",
-      "period": "High school",
-      "context": "Student leadership",
+      "organization": "Community Initiative",
+      "role": "Volunteer Organizer",
+      "period": "Grades 10–12",
+      "context": "Community Service",
+      "commitment": "During school and breaks · 3 hr/week · 17 weeks/year",
       "highlights": [
-        "Founded a mathematics club and helped peers explore mathematical concepts beyond the school curriculum.",
-        "Founded and led the debate club for three years, supporting discussion and public speaking.",
-        "Founded a chess club to bring together students interested in strategy and problem-solving.",
-        "Helped administer the student council presidential election."
+        "Organized friends and neighbors through a local initiative with more than 50 active members. We raised over 20,000 birr and collected books for local children, helped more than 150 people and earned recognition from local administrators."
+      ]
+    },
+    {
+      "organization": "School Chess Club",
+      "role": "Co-Founder and President",
+      "period": "Grades 10–12",
+      "context": "Club Activity",
+      "commitment": "During school · 10 hr/week · 28 weeks/year",
+      "highlights": [
+        "Organized weekly chess meetings for more than 20 members, coached beginners and hosted a schoolwide tournament with more than 50 participants."
+      ]
+    },
+    {
+      "organization": "School Government Election Board",
+      "role": "Board President",
+      "period": "Grades 11–12",
+      "context": "Student Government",
+      "commitment": "During school · 1 hr/week · 5 weeks/year",
+      "highlights": [
+        "Led the board in organizing and running the school government election."
+      ]
+    },
+    {
+      "organization": "Science and Technology Club",
+      "role": "Vice President and Event Organizer",
+      "period": "Grades 10–12",
+      "context": "Computer & Technology",
+      "commitment": "During school and breaks · 3 hr/week · 13 weeks/year",
+      "highlights": [
+        "Shared weekly science facts, organized school tournaments and helped students develop their ideas and projects through the school’s oldest club, which had more than 250 active members."
+      ]
+    },
+    {
+      "organization": "School Debate Club",
+      "role": "Secretary",
+      "period": "Grades 11–12",
+      "context": "Debate & Speech",
+      "commitment": "During school · 2 hr/week · 8 weeks/year",
+      "highlights": [
+        "Coordinated a schoolwide debate with more than 30 participants. Helped lead my team to victory by developing arguments and mentoring teammates."
+      ]
+    },
+    {
+      "organization": "Charity Club",
+      "role": "Member",
+      "period": "Grades 9–12",
+      "context": "Club Activity",
+      "commitment": "During school and breaks · 4 hr/week · 24 weeks/year",
+      "highlights": [
+        "Helped the team collect about US$1,000 worth of food for children and other community members who couldn’t afford it."
+      ]
+    },
+    {
+      "organization": "STAR Program",
+      "role": "Online Combinatorics Student",
+      "period": "Grades 10–11",
+      "context": "Science & Math",
+      "commitment": "During school and breaks · 3 hr/week · 27 weeks/year",
+      "highlights": [
+        "Completed an advanced combinatorics course for students who performed well in national mathematics olympiads."
+      ]
+    },
+    {
+      "organization": "Mekane Yesus Seminary (EECMY)",
+      "role": "Piano Student",
+      "period": "Grade 9",
+      "context": "Instrumental Music",
+      "commitment": "During school breaks · 4 hr/week · 15 weeks/year",
+      "highlights": [
+        "Took a piano course at a local music and theology school and developed a love for classical music."
       ]
     }
   ],
@@ -163,6 +227,46 @@
       "preview": {
         "src": "/images/certificates/introduction-to-ai-for-work.webp",
         "alt": "DataCamp statement of accomplishment awarded to Michael Feleke for Introduction to AI for Work, completed September 12, 2026"
+      }
+    },
+    {
+      "title": "Pathways to Space Program",
+      "issuer": "FASESA and Boeing",
+      "date": "July 10, 2024",
+      "url": "https://drive.google.com/file/d/1z-j-t8-lUu-1-EfBO7j1Uyt3vzA6EuZe/view?usp=drive_link",
+      "preview": {
+        "src": "/images/certificates/pathways-to-space.webp",
+        "alt": "Pathways to Space Program completion certificate awarded to Michael Feleke Sahle"
+      }
+    },
+    {
+      "title": "Certificate of Excellence · Science Fair, 3rd Place",
+      "issuer": "Neway Challenge Academy",
+      "date": "May 7, 2024",
+      "url": "https://drive.google.com/file/d/1EphqSsCXEh1C0KqH-IYwIFdAKXASAWhP/view?usp=drive_link",
+      "preview": {
+        "src": "/images/certificates/science-fair-third-place.webp",
+        "alt": "Neway Challenge Academy certificate for third place in the local science fair awarded to Michael Feleke Sahle"
+      }
+    },
+    {
+      "title": "Certificate of Excellence · Engineering Fair, 1st Prize",
+      "issuer": "Ethiopian Academy of Sciences",
+      "date": "November 1, 2025",
+      "url": "https://drive.google.com/file/d/16oX4nerOykhZfGohpI1ATEwD1GUR-MWu/view?usp=drive_link",
+      "preview": {
+        "src": "/images/certificates/engineering-fair-first-prize.webp",
+        "alt": "Ethiopian Academy of Sciences certificate for first prize at the science and engineering fair awarded to Michael Feleke Sahle"
+      }
+    },
+    {
+      "title": "Certificate of Appreciation · Chess Club Leadership",
+      "issuer": "Neway Challenge Academy",
+      "date": "",
+      "url": "https://drive.google.com/file/d/1kkNLtdD7NPpaePVLe36etxJMXUFWnrGU/view?usp=drive_link",
+      "preview": {
+        "src": "/images/certificates/chess-club-leadership.webp",
+        "alt": "Neway Challenge Academy certificate of appreciation for Michael Feleke Sahle’s chess club leadership"
       }
     }
   ],

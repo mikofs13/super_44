@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- The persistent scene handles local routes, which also work without JavaScript. */
 import { profile } from '@/content/profile';
-import type { Experience } from '@/content/profile-schema';
+import type { Activity } from '@/content/profile-schema';
 import ProjectPreview from './ProjectPreview';
 import styles from '@/app/page.module.css';
 import application from './AboutProfile.module.css';
 
-function ExperienceList({ entries }: { entries: Experience[] }) {
+function ExperienceList({ entries }: { entries: Activity[] }) {
   return entries.map(entry => (
     <article className={application.entry} key={`${entry.organization}-${entry.role}`}>
       <div className={application.entryHeading}>
@@ -13,6 +13,7 @@ function ExperienceList({ entries }: { entries: Experience[] }) {
         <span>{entry.period}</span>
       </div>
       <p className={application.organization}>{entry.organization}{entry.context && ` · ${entry.context}`}</p>
+      {entry.commitment && <p className={application.commitment}>{entry.commitment}</p>}
       {entry.highlights.length > 0 && (
         <ul>{entry.highlights.map(item => <li key={item}>{item}</li>)}</ul>
       )}
@@ -21,15 +22,17 @@ function ExperienceList({ entries }: { entries: Experience[] }) {
 }
 
 export default function AboutProfile() {
-  const { name, role, introduction, photo, banner, education, honors, activities, experience } = profile;
+  const { name, role, introduction, photo, banner, education, honors, experience } = profile;
 
   return (
     <div className={styles.aboutProfile}>
       <header className={application.masthead}>
         <div className={application.identity}>
           {photo.src && <div className={application.portrait}><ProjectPreview {...photo}/></div>}
-          <h1>{name || 'Meet the developer'}</h1>
-          {role && <p>{role}</p>}
+          <div className={application.identityText}>
+            <h1>{name || 'Meet the developer'}</h1>
+            {role && <p>{role}</p>}
+          </div>
         </div>
         {banner.src && <div className={application.banner}><ProjectPreview {...banner}/></div>}
       </header>
@@ -83,13 +86,6 @@ export default function AboutProfile() {
           </section>
         )}
 
-        {!!activities?.length && (
-          <section className={application.section} aria-labelledby="activities-title">
-            <h2 id="activities-title">Activities &amp; Leadership</h2>
-            <ExperienceList entries={activities}/>
-          </section>
-        )}
-
         {experience.length > 0 && (
           <section className={application.section} aria-labelledby="experience-title">
             <h2 id="experience-title">Experience</h2>
@@ -99,9 +95,18 @@ export default function AboutProfile() {
 
         <div className={application.actions}>
           <a className="button" href="/projects/">View my projects <span aria-hidden="true">↗</span></a>
-          <a className="textLink" href="/contact/">Get in touch <span aria-hidden="true">↗</span></a>
+          <a className="textLink" href="/activities/">View my activities <span aria-hidden="true">↗</span></a>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function ActivitiesProfile() {
+  return (
+    <div className={application.detail}>
+      <h2 className={application.detailTitle}>Activities &amp; Leadership</h2>
+      {profile.activities?.length ? <ExperienceList entries={profile.activities}/> : <p>No activities listed yet.</p>}
     </div>
   );
 }

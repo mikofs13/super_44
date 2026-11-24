@@ -108,3 +108,23 @@ Browser verification exposed an early-keyboard-navigation race: scheduling focus
 ## 24 November 2026 · Admissions-focused profile
 
 Use the owner’s updated profile as the source for school results, awards and activities. Remove the university bio reference and degree entry. Present award and leadership details in distinct sections, keep employment under Experience, and retain the original garage theme and project routes. Show a portrait when the owner supplies one. See the [current specification](27-REFERENCE-PROFILE-AND-CONTENT.md) and [editing guide](28-EDITING-CONTENT.md).
+
+## 24 November 2026 · Separate admissions tabs
+
+Give Honors, Activities and Experience their own static routes and keep education and biography in About. Use the supplied screenshot to set the normal-zoom proportions while preserving readable text and fixed browser controls. Keep the existing profile data and support a portrait when the owner supplies one. See the [current specification](27-REFERENCE-PROFILE-AND-CONTENT.md).
+
+## 24 November 2026 · Common App activity details
+
+Use the newer activities list where its roles differ from earlier copy. Omit application identifiers and clarify the STAR Program rank before publishing a numerical claim. See the [current specification](27-REFERENCE-PROFILE-AND-CONTENT.md) and [editing guide](28-EDITING-CONTENT.md).
+
+Owner correction: move Honors and Experience into About and retain the dedicated Activities tab. Apply the supplied award order, removal and placement correction in profile JSON.
+
+Certificate update: the supplied Pathways to Space Program link opened without signing in and its title, presenters and date were transcribed from the document. Use the original Drive URL on the certificate card.
+
+Certificate update: verified the school science fair certificate against the supplied Drive document and used its original URL. This is a separate certificate record from the engineering fair honor.
+
+Certificate update: render each supplied Drive PDF as a local first-page preview so the grid does not depend on an embedded Drive viewer. Keep the originals linked in Drive and use the existing uncropped image and failure fallback.
+
+Portrait update: keep the supplied JPEG and crop it in the About masthead. The photo and alt text remain editable in profile JSON.
+
+Development recovery: a profile edit could briefly refer to a file that had not been copied, leaving the running dev server with a 500 after the image URL began serving. Limit filesystem existence checks to production and keep validation of profile data in every mode.

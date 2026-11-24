@@ -29,3 +29,23 @@ Latest space correction: removed the footer strip below the car, including its d
 ## 24 November 2026 · College application portfolio
 
 The About pane leads with the owner’s name and interests, followed by Neway Challenge Academy and its academic results, a short biography, Honors & Awards, Activities & Leadership, and professional experience. The About page presents the owner-provided academic and extracurricular details in editable profile JSON. The original garage artwork remains part of the masthead, and an optional supplied portrait can be displayed. Existing section routes, the project showcase, browser controls and motion preferences are preserved. See the [editing guide](28-EDITING-CONTENT.md).
+
+## 24 November 2026 · Admissions tabs and compact window
+
+About contains the short biography and education. Honors, Activities and Experience each have their own tab and static route at `/honors/`, `/activities/` and `/experience/`. The active tab stays in view in the horizontally scrolling mobile tab strip. The supplied 67% zoom screenshot sets the desktop composition at normal zoom, with a compact centered window, garage artwork visible at both sides, and larger main navigation and in-window status bar. The pit lane stays full width. The editable `photo` field is ready for the owner’s portrait.
+
+## 24 November 2026 · Common App activities
+
+The Activities tab uses all ten entries in the owner’s Common App order. Each entry shows the role, organization, grade levels, category, time commitment and a short account of the work. About reflects the updated chess, debate and volunteering roles.
+
+Owner correction: About also contains Honors & Awards and Experience. Activities remains a separate tab and static route. Honors leads with the engineering fair win, followed by the Ethiopian Mathematics Olympiad entry with its national competition and Addis Ababa placement details.
+
+Certificate update: the Pathways to Space Program certificate is listed with FASESA and Boeing and its issue date of 10 July 2024. The card links to the original PDF in Google Drive.
+
+Certificate update: added Neway Challenge Academy’s Certificate of Excellence for third place at the local science fair, dated 7 May 2024. The card links to the original PDF in Google Drive.
+
+Certificate update: the four Drive-linked certificates now use local WebP previews in the same cards as the DataCamp certificates. Three sideways scans are rotated upright in their previews. Clicking a preview opens its original PDF on Drive.
+
+Portrait update: About shows the owner’s supplied headshot alongside the name. The circular frame adjusts to the available width and uses a centered crop with room above the hair.
+
+Development recovery: validate the profile schema in every mode. Check local image and PDF existence during production builds so a temporarily missing image in development can use the existing preview fallback.

@@ -2,9 +2,20 @@
 'use client';
 import { useEffect, useRef, useState, type ReactNode, type MouseEvent } from 'react';
 import styles from './page.module.css';
-const tabs = [{id:'about',label:'About',href:'/info/'},{id:'projects',label:'Projects',href:'/projects/'},{id:'skills',label:'Skills',href:'/skills/'},{id:'certificates',label:'Certificates',href:'/certificates/'},{id:'contact',label:'Contact',href:'/contact/'}];
-const hrefFor = (id: string) => id.startsWith('project-') ? `/projects/#${id}` : tabs.find(tab=>tab.id===id)?.href || '/';
-export default function PortfolioShell({ name, panels, projectPanels, initialView = 'hero' }: { name: string; panels: ReactNode[]; projectPanels: { id: string; title: string; content: ReactNode }[]; initialView?: string }) {
+import { portfolioTabs as tabs, sectionHref, type PortfolioSection } from './portfolio-tabs';
+
+function hrefFor(id: string) {
+  if (id.startsWith('project-')) return `/projects/#${id}`;
+  const tab = tabs.find(tab => tab.id === id);
+  return tab ? sectionHref(tab.path) : '/';
+}
+
+export default function PortfolioShell({ name, panels, projectPanels, initialView }: {
+  name: string;
+  panels: Record<PortfolioSection, ReactNode>;
+  projectPanels: { id: string; content: ReactNode }[];
+  initialView: string;
+}) {
   const projectRoutes = projectPanels.map(project=>project.id).join('|');
   const [active,setActive] = useState(initialView);
   const [enhanced,setEnhanced] = useState(false);
@@ -12,6 +23,7 @@ export default function PortfolioShell({ name, panels, projectPanels, initialVie
   const [visible,setVisible] = useState(true);
   const [maximized,setMaximized] = useState(false);
   const windowRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLElement>(null);
   const carRef = useRef<HTMLDivElement>(null);
   const animation = useRef<Animation|null>(null);
   const frame = useRef(0);
@@ -21,7 +33,7 @@ export default function PortfolioShell({ name, panels, projectPanels, initialVie
   useEffect(()=>{
     const reduced=matchMedia('(prefers-reduced-motion: reduce)');
     const syncMotion=()=>{let saved;try{saved=localStorage.getItem('super44.motion.v2')}catch{}setMotion(!reduced.matches&&saved!=='off');if(reduced.matches)animation.current?.cancel()};
-    const syncRoute=()=>{const hash=location.hash.slice(1);const routes=projectRoutes.split('|');const path=location.pathname.replace(/\/$/,'');const byPath=tabs.find(tab=>tab.href.replace(/\/$/,'')===path)?.id||'hero';setActive(hash==='build'?(routes[0]||'projects'):routes.includes(hash)||tabs.some(tab=>tab.id===hash)?hash:byPath);};
+    const syncRoute=()=>{const hash=location.hash.slice(1);const routes=projectRoutes.split('|');const path=location.pathname.replace(/\/$/,'');const byPath=tabs.find(tab=>tab.path===path.slice(1))?.id||'hero';setActive(hash==='build'?(routes[0]||'projects'):routes.includes(hash)||tabs.some(tab=>tab.id===hash)?hash:byPath);};
     const syncFullscreen=()=>setMaximized(Boolean(document.fullscreenElement));
     const syncVisibility=()=>setVisible(!document.hidden);
     // Early keyboard navigation must not cancel layout initialization.
@@ -29,6 +41,16 @@ export default function PortfolioShell({ name, panels, projectPanels, initialVie
     reduced.addEventListener('change',syncMotion);window.addEventListener('hashchange',syncRoute);window.addEventListener('popstate',syncRoute);document.addEventListener('visibilitychange',syncVisibility);document.addEventListener('fullscreenchange',syncFullscreen);
     return()=>{cancelAnimationFrame(initializeFrame);cancelAnimationFrame(frame.current);animation.current?.cancel();reduced.removeEventListener('change',syncMotion);window.removeEventListener('hashchange',syncRoute);window.removeEventListener('popstate',syncRoute);document.removeEventListener('visibilitychange',syncVisibility);document.removeEventListener('fullscreenchange',syncFullscreen)};
   },[projectRoutes]);
+  useEffect(() => {
+    const strip = tabsRef.current;
+    const current = strip?.querySelector('[aria-current="page"]');
+    if (!strip || !current) return;
+    const stripBounds = strip.getBoundingClientRect();
+    const tabBounds = current.getBoundingClientRect();
+    if (tabBounds.left < stripBounds.left) strip.scrollLeft += tabBounds.left - stripBounds.left;
+    if (tabBounds.right > stripBounds.right) strip.scrollLeft += tabBounds.right - stripBounds.right;
+  }, [active]);
+
   async function toggleFullscreen(){
     if(document.fullscreenElement){await document.exitFullscreen();return}
     if(maximized){setMaximized(false);return}
@@ -43,16 +65,16 @@ export default function PortfolioShell({ name, panels, projectPanels, initialVie
     if(motion&&!matchMedia('(prefers-reduced-motion: reduce)').matches)animation.current=carRef.current?.animate([{transform:'translateX(-28px)'},{transform:'translateX(0)'}],{duration:220,easing:'ease-out'})??null;
   }
   function navigate(event:MouseEvent<HTMLAnchorElement>,id:string){if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();go(id)}
-  function routeClick(event:MouseEvent<HTMLDivElement>){const link=(event.target as HTMLElement).closest<HTMLAnchorElement>('a');if(!link||link.origin!==location.origin)return;const hash=link.hash.slice(1);const id=projectPanels.some(p=>p.id===hash)?hash:tabs.find(tab=>tab.href===link.pathname)?.id;if(id)navigate(event as unknown as MouseEvent<HTMLAnchorElement>,id)}
+  function routeClick(event:MouseEvent<HTMLDivElement>){const link=(event.target as HTMLElement).closest<HTMLAnchorElement>('a');if(!link||link.origin!==location.origin)return;const hash=link.hash.slice(1);const id=projectPanels.some(p=>p.id===hash)?hash:tabs.find(tab=>sectionHref(tab.path)===link.pathname)?.id;if(id)navigate(event as unknown as MouseEvent<HTMLAnchorElement>,id)}
   return <div className={styles.app} data-enhanced={enhanced} data-open={opened} data-motion={motion&&visible}>
     <a className="skip" href="#main" onClick={e=>navigate(e,'about')}>Skip to portfolio</a>
-    <header className={styles.header}><a className={styles.wordmark} href="/" onClick={e=>navigate(e,'hero')}>SUPER <span>44</span></a><nav aria-label="Main navigation">{tabs.filter(tab=>["projects","about","contact"].includes(tab.id)).map(tab=><a key={tab.id} href={tab.href} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav></header>
+    <header className={styles.header}><a className={styles.wordmark} href="/" onClick={e=>navigate(e,'hero')}>SUPER <span>44</span></a><nav aria-label="Main navigation">{tabs.filter(tab=>["projects","about","contact"].includes(tab.id)).map(tab=><a key={tab.id} href={sectionHref(tab.path)} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav></header>
     <main id="main" tabIndex={-1} className={styles.stage}><div className={styles.world} aria-hidden="true"/>
       <section id="hero" tabIndex={-1} className={styles.hero} hidden={opened} aria-labelledby="hero-title"><div className={styles.heroCopy}><h1 id="hero-title">SUPER<span>44</span></h1>{name && <h2>{name}</h2>}<p>Academic achievements, student leadership and engineering projects.</p><a className="button" href="/info/" onClick={e=>navigate(e,'about')}>Enter pit lane <span aria-hidden="true">→</span></a><div className={styles.shortcuts}><a href="/projects/" onClick={e=>navigate(e,'projects')}>Explore projects</a><span>/</span><a href="/contact/" onClick={e=>navigate(e,'contact')}>Say hello</a></div>{motionControl}</div></section>
       <section id="garage" className={styles.garage} hidden={!opened} aria-label="Portfolio window"><div ref={windowRef} className={styles.window} data-maximized={maximized}>
         <div className={styles.browserTop}>
           <span className={styles.windowDots} aria-hidden="true">● ● ●</span>
-          <nav className={styles.tabs} aria-label="Portfolio sections">{tabs.map(tab=><a key={tab.id} href={tab.href} aria-current={active===tab.id||(active.startsWith('project-')&&tab.id==='projects')?'page':undefined} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav>
+          <nav ref={tabsRef} className={styles.tabs} aria-label="Portfolio sections">{tabs.map(tab=><a key={tab.id} href={sectionHref(tab.path)} aria-current={active===tab.id||(active.startsWith('project-')&&tab.id==='projects')?'page':undefined} onClick={e=>navigate(e,tab.id)}>{tab.label}</a>)}</nav>
           <div className={styles.windowActions}><button type="button" aria-label={maximized?'Exit fullscreen':'Enter fullscreen'} onClick={toggleFullscreen}>⤢</button><a href="/" aria-label="Close portfolio, return to circuit" onClick={e=>navigate(e,'hero')}>×</a></div>
         </div>
         <div className={styles.browserToolbar}>
@@ -61,7 +83,7 @@ export default function PortfolioShell({ name, panels, projectPanels, initialVie
           {motionControl}
         </div>
         <div className={styles.readingPane} data-reading-pane onClick={routeClick}>
-          {[{id:'projects',content:panels[0]},{id:'skills',content:panels[1]},{id:'about',content:panels[2]},{id:'contact',content:panels[3]},{id:'certificates',content:panels[4]},...projectPanels].map(panel=><section id={panel.id} key={panel.id} tabIndex={-1} className={styles.panel} hidden={active!==panel.id}>{panel.content}</section>)}
+          {[...tabs.map(tab => ({ id: tab.id, content: panels[tab.id] })), ...projectPanels].map(panel=><section id={panel.id} key={panel.id} tabIndex={-1} className={styles.panel} hidden={active!==panel.id}>{panel.content}</section>)}
         </div>
         <div className={styles.status}><span><i/> Garage open</span><span>Built one lap at a time.</span></div>
       </div></section>

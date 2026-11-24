@@ -96,3 +96,17 @@ Not performed: physical-device testing, Safari/Firefox, manual screen-reader rev
 ## 24 November 2026 · College application portfolio
 
 The production export, ESLint, TypeScript, and 13 unit tests passed. Edge coverage exercised the admissions content, pane scrolling, route history, keyboard entry, reduced motion, failed artwork, no-JavaScript navigation, and axe scans. The profile was reviewed in Edge at 1440px, 390px and 320px. Physical devices and additional browser engines were outside this check.
+
+## 24 November 2026 · Admissions tabs and normal-zoom layout
+
+The production export, lint, typecheck, 13 unit tests and 14 Edge browser tests passed. The new tabs open from static URLs and retain navigation through reload and browser history. Native links also work without JavaScript. The profile was checked at normal zoom in Edge at 1920, 1440, 390 and 320 pixels wide. The reading pane fit at each width and the active Experience tab stayed visible. Physical devices and other browser engines were outside this check.
+
+## 24 November 2026 · Common App activities and About corrections
+
+The production export, lint, typecheck, 13 unit tests and 14 Edge browser tests passed. Browser coverage confirmed the corrected Honors order and Experience in About, all ten entries in Activities, the first entry’s time commitment, and native navigation without JavaScript. The exported About and Activities pages were checked for application identifiers.
+
+Certificate preview update: visually checked all four upright renders and the desktop card layout. The production build and focused certificate browser test passed. The test verifies preview loads, uncropped sizing, original PDF destinations, mobile rendering, image failure recovery and no-JavaScript links.
+
+Portrait update: the production build passed. Verified image loading, a round frame and no horizontal overflow in Edge at 1440px, 390px and 320px. Visually checked the crop at desktop and narrow mobile widths.
+
+Portrait recovery: reproduced the 500 on the running development server while the JPEG returned 200. After the fix, both the homepage and About returned 200 in Edge, the portrait decoded successfully, blocking its image request showed the fallback, and the production build passed.

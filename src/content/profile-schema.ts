@@ -1,10 +1,11 @@
 export type Media = { src: string; alt: string };
 export type Experience = { organization: string; role: string; period: string; context: string; highlights: string[] };
+export type Activity = Experience & { commitment?: string };
 export type Profile = {
   name: string; role: string; introduction: string[]; photo: Media; banner: Media;
   education: { institution: string; qualification: string; location: string; period: string; results?: { label: string; value: string; detail?: string }[] }[];
   honors?: { title: string; context: string; period: string }[];
-  activities?: Experience[];
+  activities?: Activity[];
   experience: Experience[];
   skills: { title: string; items: string[] }[];
   certificates: { title: string; issuer: string; date: string; url: string; document?: string; preview?: Media }[];
@@ -59,6 +60,7 @@ export function validateProfile(input: unknown): asserts input is Profile {
       for (const field of ['organization', 'role', 'period']) text(row[field], `${section}.${field}`, true);
       text(row.context, `${section}.context`);
       texts(row.highlights, `${section}.highlights`);
+      if (section === 'activities' && row.commitment !== undefined) text(row.commitment, 'activities.commitment', true);
     }
   }
   for (const entry of array(profile.skills, 'skills')) { const row = object(entry, 'skills item'); text(row.title, 'skills.title', true); texts(row.items, 'skills.items'); }
